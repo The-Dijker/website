@@ -87,6 +87,9 @@ jobs:
           echo "Setting ingress host to $INGRESS_HOST"
           echo "ingress_host=$INGRESS_HOST" >> $GITHUB_OUTPUT
           
+          echo "Setting letsencrypt env to $LETSENCRYPT_ENV"
+          echo "letsencrypt_env=$LETSENCRYPT_ENV" >> $GITHUB_OUTPUT
+          
           NAMESPACE=$APP_NAME-${{ matrix.environment }}
           echo "Setting namespace to $NAMESPACE"
           echo "namespace=$NAMESPACE" >> $GITHUB_OUTPUT
@@ -112,6 +115,7 @@ jobs:
           DOCKER_TAG: ${{ needs.build-docker-image.outputs.tag }}
           INGRESS_HOST: ${{ steps.config.outputs.ingress_host }}
           APP_ENV: ${{ matrix.environment }}
+          LETSENCRYPT_ENV: ${{ steps.config.outputs.letsencrypt_env }}
         run: |
           envsubst < ./k8s/values.yaml > ./k8s/processed-values.yaml
 
