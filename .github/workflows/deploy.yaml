@@ -29,7 +29,7 @@ jobs:
       - name: Generate build config
         id: config
         run: |
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
+          if [[ $GITHUB_REF == refs/heads/main ]]; then
             TAG=$GITHUB_REF_NAME
           else
             TAG=$GITHUB_SHA
@@ -79,7 +79,7 @@ jobs:
       - name: Generate deployment config
         id: config
         run: |
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
+          if [[ $GITHUB_REF == refs/heads/main ]]; then
             INGRESS_HOST=${{ vars.BASE_DOMAIN }}
             POSTGRES_ENV="production"
           else
