@@ -9,7 +9,7 @@ on:
       - '*'
 
 env:
-  DOCKER_IMAGE_PREFIX: rutger505/dijker-website
+  DOCKER_IMAGE: rutger505/dijker-website
   APP_NAME: dijker-website
 
 jobs:
@@ -34,9 +34,6 @@ jobs:
           else
             TAG=$GITHUB_SHA
           fi
-          
-          echo "Setting image to $DOCKER_IMAGE_PREFIX-website"
-          echo "image=$DOCKER_IMAGE_PREFIX-website" >> $GITHUB_OUTPUT
            
           echo "Setting tag to $TAG"
           echo "tag=$TAG" >> $GITHUB_OUTPUT
@@ -53,9 +50,9 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ steps.config.outputs.image }}:${{ steps.config.outputs.tag }}
-          cache-from: type=registry,ref=${{ steps.config.outputs.image }}:cache
-          cache-to: type=registry,ref=${{ steps.config.outputs.image }}:cache,mode=max
+          tags: ${{ env.DOCKER_IMAGE }}:${{ steps.config.outputs.tag }}
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE }}:cache
+          cache-to: type=registry,ref=${{ env.DOCKER_IMAGE }}:cache,mode=max
 
   deploy-to-kubernetes:
     name: Deploy to Kubernetes
