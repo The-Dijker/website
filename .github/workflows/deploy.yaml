@@ -114,6 +114,7 @@ jobs:
         env:
           DOCKER_TAG: ${{ needs.build-docker-image.outputs.tag }}
           INGRESS_HOST: ${{ steps.config.outputs.ingress_host }}
+          APP_ENV: ${{ matrix.environment }}
         run: |
           envsubst < ./k8s/values.yaml > ./k8s/processed-values.yaml
 
