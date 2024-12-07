@@ -1,0 +1,15 @@
+app:
+  name: dijker-website
+  namespace: dijker-website-${APP_ENV}
+  image:
+    repository: rutger505/dijker-website
+    tag: "${DOCKER_TAG}"
+  port: 3000
+  
+ingress:
+  host: "${INGRESS_HOST}"
+
+certificate:
+  clusterIssuerName: letsencrypt-${LETSENCRYPT_ENV}
+  duration: 2160h # 90 days
+  renewBefore: 360h # 15 days
