@@ -6,6 +6,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,7 +32,10 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={GeistSans.variable}>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <div className={"grid grid-rows-[auto_1fr]"}>
+            <Header />
+            {children}
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

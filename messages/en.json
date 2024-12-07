@@ -1,4 +1,11 @@
 {
+  "header": {
+    "home": "Home",
+    "about": "The Dijker",
+    "technique": "Technique",
+    "creator": "Creator",
+    "contact": "Contact"
+  },
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
