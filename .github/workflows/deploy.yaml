@@ -78,7 +78,7 @@ jobs:
         run: |
           if [[ $GITHUB_REF == refs/heads/main ]]; then
             INGRESS_HOST=${{ vars.BASE_DOMAIN }}
-            POSTGRES_ENV="production"
+            LETSENCRYPT_ENV="production"
           else
             INGRESS_HOST=${{ github.sha }}.${{ vars.BASE_DOMAIN }}
             LETSENCRYPT_ENV="staging"
