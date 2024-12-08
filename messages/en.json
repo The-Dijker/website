@@ -1,4 +1,8 @@
 {
+  "localeSwitcher": {
+    "en": "English",
+    "nl": "Nederlands"
+  },
   "header": {
     "home": "Home",
     "about": "The Dijker",

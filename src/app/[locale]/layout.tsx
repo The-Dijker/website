@@ -7,9 +7,9 @@ import { GeistSans } from "geist/font/sans";
 import { ReactNode } from "react";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { locales } from "@/i18n/routing";
+import { Locale, locales } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { MantineProvider } from "@mantine/core";
 import DijkerCarousel from "@/components/DijkerCarousel";
 
@@ -27,7 +27,7 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
 
-  if (!locales.includes(locale)) {
+  if (!locales.includes(locale as Locale)) {
     notFound();
   }
 
@@ -38,7 +38,7 @@ export default async function RootLayout({
       <body className={GeistSans.variable}>
         <NextIntlClientProvider messages={messages}>
           <MantineProvider>
-            <div className={"grid grid-rows-[auto_auto_1fr] min-h-screen"}>
+            <div className={"grid min-h-screen grid-rows-[auto_auto_1fr]"}>
               <Header />
               <DijkerCarousel />
 
