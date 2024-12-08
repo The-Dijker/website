@@ -20,9 +20,9 @@ export function Header() {
     <header className="relative z-10 flex items-center justify-between bg-primary px-4 md:px-12">
       <Image src="/logo.webp" alt="Logo" width={214} height={80} />
 
-      <div className="flex items-center">
+      <div className="hidden items-center lg:flex">
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex">
+        <nav className="">
           {navItems.map((item) => (
             <Link
               className="p-4 font-semibold text-white hover:opacity-80"
@@ -34,10 +34,13 @@ export function Header() {
           ))}
         </nav>
 
-        <MobileNavigation navItems={navItems} />
-
         <LocaleSwitcher />
       </div>
+
+      <MobileNavigation
+        navItems={navItems}
+        localeSwitcher={<LocaleSwitcher />}
+      />
     </header>
   );
 }

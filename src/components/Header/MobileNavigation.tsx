@@ -1,8 +1,10 @@
 "use client";
+
 import { Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Link } from "@/i18n/routing";
 import clsx from "clsx";
+import { ReactNode } from "react";
 
 type NavItem = {
   href: string;
@@ -11,9 +13,13 @@ type NavItem = {
 
 type MobileNavProps = {
   navItems: NavItem[];
+  localeSwitcher: ReactNode;
 };
 
-export function MobileNavigation({ navItems }: Readonly<MobileNavProps>) {
+export function MobileNavigation({
+  navItems,
+  localeSwitcher,
+}: Readonly<MobileNavProps>) {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   return (
@@ -37,7 +43,7 @@ export function MobileNavigation({ navItems }: Readonly<MobileNavProps>) {
         <div className="flex min-h-screen flex-col bg-primary">
           {navItems.map((item) => (
             <Link
-              className="p-6 text-center text-2xl font-semibold text-white hover:opacity-80"
+              className="p-6 text-center font-semibold text-white hover:opacity-80"
               key={item.href}
               href={item.href}
               onClick={close}
@@ -45,6 +51,10 @@ export function MobileNavigation({ navItems }: Readonly<MobileNavProps>) {
               {item.label}
             </Link>
           ))}
+
+          <div className="flex justify-center p-6 text-center text-2xl font-semibold text-white hover:opacity-80">
+            {localeSwitcher}
+          </div>
         </div>
       </div>
     </>
