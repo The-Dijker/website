@@ -16,6 +16,7 @@ export function Header() {
     { href: "/about", label: t("about") },
     { href: "/technique", label: t("technique") },
     { href: "/creator", label: t("creator") },
+    { href: "/investors", label: t("invest") },
     { href: "/contact", label: t("contact") },
   ];
 
@@ -24,7 +25,7 @@ export function Header() {
       <Image src="/logo.webp" alt="Logo" width={214} height={80} />
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex">
+      <nav className="hidden lg:flex">
         {navItems.map((item) => (
           <Link
             className="p-4 font-semibold text-white hover:opacity-80"
@@ -41,7 +42,7 @@ export function Header() {
         opened={opened}
         onClick={toggle}
         color="white"
-        className="md:hidden"
+        className="lg:hidden"
       />
 
       <div
