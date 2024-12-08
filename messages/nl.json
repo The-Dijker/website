@@ -1,8 +1,5 @@
 {
-  "localeSwitcher": {
-    "en": "English",
-    "nl": "Nederlands"
-  },
+  "language": "Nederlands",
   "HomePage": {
     "title": "Hallo wereld!",
     "about": "Dit is een voorbeeld van een internationale website met meertalige ondersteuning."
