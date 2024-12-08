@@ -4,13 +4,7 @@ import { Link } from "@/i18n/routing";
 
 export function Header() {
   const t = useTranslations("header");
-  //"header": {
-  //     "home": "Home",
-  //     "about": "The Dijker",
-  //     "technique": "Technique",
-  //     "creator": "Creator",
-  //     "contact": "Contact"
-  //   },
+
   const navItems = [
     { href: "/", label: t("home") },
     { href: "/about", label: t("about") },
@@ -18,6 +12,7 @@ export function Header() {
     { href: "/creator", label: t("creator") },
     { href: "/contact", label: t("contact") },
   ];
+
   return (
     <header className={"bg-primary flex justify-between items-center px-12"}>
       <Image src={"/logo.webp"} alt={"Logo"} width={214} height={80} />

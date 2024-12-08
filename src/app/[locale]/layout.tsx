@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
 import "./globals.css";
+import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
+
+import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { ReactNode } from "react";
 import { getMessages } from "next-intl/server";
@@ -7,6 +10,8 @@ import { notFound } from "next/navigation";
 import { locales } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
 import Header from "@/components/header";
+import { MantineProvider } from "@mantine/core";
+import DijkerCarousel from "@/components/DijkerCarousel";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,10 +37,14 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={GeistSans.variable}>
         <NextIntlClientProvider messages={messages}>
-          <div className={"grid grid-rows-[auto_1fr]"}>
-            <Header />
-            {children}
-          </div>
+          <MantineProvider>
+            <div className={"grid grid-rows-[auto_auto_1fr] min-h-screen"}>
+              <Header />
+              <DijkerCarousel />
+
+              {children}
+            </div>
+          </MantineProvider>
         </NextIntlClientProvider>
       </body>
     </html>
