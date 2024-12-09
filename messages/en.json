@@ -1,5 +1,17 @@
 {
   "language": "English",
+  "metadata": {
+    "title": "The Dijker",
+    "description": "The Dijker is a new type of vehicle that feels quite familiar at the same time.",
+    "keywords": {
+      "dijker": "dijker",
+      "vehicle": "vehicle",
+      "belt drive": "spiral belt drive",
+      "multispeed": "multispeed",
+      "high-tech": "high-tech",
+      "recumbent-bike": "recumbent bike"
+    }
+  },
   "header": {
     "home": "Home",
     "about": "The Dijker",
