@@ -1,4 +1,13 @@
 {
+  "language": "English",
+  "header": {
+    "home": "Home",
+    "about": "The Dijker",
+    "technique": "Technique",
+    "creator": "Creator",
+    "invest": "Investing",
+    "contact": "Contact"
+  },
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"

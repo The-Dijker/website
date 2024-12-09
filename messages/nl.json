@@ -1,4 +1,13 @@
 {
+  "language": "Nederlands",
+  "header": {
+    "home": "Home",
+    "about": "De Dijker",
+    "technique": "Techniek",
+    "creator": "Uitvinder",
+    "invest": "Investeren",
+    "contact": "Contact"
+  },
   "HomePage": {
     "title": "Hallo wereld!",
     "about": "Dit is een voorbeeld van een internationale website met meertalige ondersteuning."
