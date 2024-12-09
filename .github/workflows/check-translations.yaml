@@ -1,0 +1,72 @@
+name: Validate i18n Keys
+on:
+  pull_request:
+    paths:
+      - "messages/en.json"
+      - "messages/nl.json"
+
+jobs:
+  validate-translations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Create validation script
+        run: |
+          cat > validate-translations.js << 'EOL'
+          const fs = require('fs');
+
+          // Read both files
+          const enPath = './messages/en.json';
+          const nlPath = './messages/nl.json';
+
+          if (!fs.existsSync(enPath) || !fs.existsSync(nlPath)) {
+            console.error('Missing translation files');
+            process.exit(1);
+          }
+
+          const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
+          const nl = JSON.parse(fs.readFileSync(nlPath, 'utf8'));
+
+          // Function to get all keys from an object recursively
+          function getAllKeys(obj, prefix = '') {
+            return Object.keys(obj).reduce((keys, key) => {
+              const newKey = prefix ? `${prefix}.${key}` : key;
+              if (typeof obj[key] === 'object' && obj[key] !== null) {
+                return [...keys, ...getAllKeys(obj[key], newKey)];
+              }
+              return [...keys, newKey];
+            }, []);
+          }
+
+          const enKeys = getAllKeys(en).sort();
+          const nlKeys = getAllKeys(nl).sort();
+
+          // Find missing keys in both directions
+          const missingInNL = enKeys.filter(key => !nlKeys.includes(key));
+          const missingInEN = nlKeys.filter(key => !enKeys.includes(key));
+
+          if (missingInNL.length > 0 || missingInEN.length > 0) {
+            if (missingInNL.length > 0) {
+              console.error('\nMissing keys in nl.json:');
+              missingInNL.forEach(key => console.error(`- ${key}`));
+            }
+            
+            if (missingInEN.length > 0) {
+              console.error('\nMissing keys in en.json:');
+              missingInEN.forEach(key => console.error(`- ${key}`));
+            }
+            
+            process.exit(1);
+          } else {
+            console.log('✅ All translation keys match between en.json and nl.json');
+          }
+          EOL
+
+      - name: Validate translation files
+        run: node validate-translations.js
