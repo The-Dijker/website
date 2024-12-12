@@ -7,6 +7,7 @@ import { XLogo } from "@/components/icons/XLogo";
 import { FacebookLogo } from "@/components/icons/FacebookLogo";
 import { LinkedInLogo } from "@/components/icons/LinkedInLogo";
 import { TwitterLogo } from "@/components/icons/TwitterLogo";
+import { Mail } from "lucide-react";
 
 export function Footer() {
   const pathname = usePathname();
@@ -26,7 +27,6 @@ export function Footer() {
   }, [pathname]);
 
   const shareLinks = [
-    // { name: "Email", icon: Mail({ className: "h-4 w-4" }) },
     { name: "Facebook", icon: FacebookLogo({ className: "h-4 w-4" }) },
     { name: "X", icon: XLogo({ className: "h-4 w-4" }) },
     { name: "Twitter", icon: TwitterLogo({ className: "h-4 w-4" }) },
@@ -36,6 +36,19 @@ export function Footer() {
   return (
     <footer className={"bg-gray flex items-center justify-center p-10"}>
       <ul className="flex gap-5">
+        <li>
+          <Link
+            href={shareUrls["Email"] || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-gray-900 transition-colors"
+            title={"Email"}
+          >
+            <div className={"-mt-px"}>
+              <Mail size={18} />
+            </div>
+          </Link>
+        </li>
         {shareLinks.map(({ name, icon }) => (
           <li key={name}>
             <Link
