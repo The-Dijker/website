@@ -17,12 +17,14 @@ export function Landing() {
 
         <div className={"aspect-video min-h-72 max-w-xl grow"}>
           <div className={"aspect-video"}>
-            {/*TODO console errors*/}
             <iframe
-              className={"h-full w-full"}
-              src="https://www.youtube.com/embed/m3ZI0HB3BCs?si=daGCnNEEwgGR0P8u"
+              className={"h-full w-full border-0"}
+              src="https://www.youtube.com/embed/m3ZI0HB3BCs?si=_86lS5defprJyBGd"
               title="YouTube video player"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             />
           </div>
         </div>
