@@ -26,6 +26,7 @@ export function DijkerCarousel() {
 
   return (
     <div className={"flex"}>
+      {/*TODO buttons responsive*/}
       <Carousel
         plugins={[autoplay.current]}
         onMouseEnter={autoplay.current.stop}

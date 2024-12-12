@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export function Landing() {
   const t = useTranslations("landing");
@@ -15,13 +15,12 @@ export function Landing() {
           </p>
         </div>
 
-        <div className={"aspect-video min-h-72 max-w-xl grow"}>
+        <div className={"aspect-video max-w-xl grow md:min-h-72"}>
           <div className={"aspect-video"}>
             <iframe
               className={"h-full w-full border-0"}
               src="https://www.youtube.com/embed/m3ZI0HB3BCs?si=_86lS5defprJyBGd"
               title="YouTube video player"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
@@ -33,7 +32,7 @@ export function Landing() {
       <Image
         src={"/design.webp"}
         alt="design"
-        className={"max-w-xl"}
+        className={"h-full w-full max-w-xl"}
         width={600}
         height={800}
       />
