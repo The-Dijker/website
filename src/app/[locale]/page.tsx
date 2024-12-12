@@ -1,12 +1,13 @@
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+import { Landing } from "@/components/Landing";
 
 export default function HomePage() {
-  const t = useTranslations("HomePage");
   return (
-    <div>
-      <h1>{t("title")}</h1>
-      <Link href="/about">{t("about")}</Link>
-    </div>
+    <main
+      className={
+        "mx-auto w-full max-w-screen-2xl space-y-20 p-6 sm:p-10 md:p-20"
+      }
+    >
+      <Landing />
+    </main>
   );
 }
