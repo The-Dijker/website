@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { FeatureImage } from "@/components/Features/FeatureImage";
 
 export default function HomePage() {
   const t = useTranslations("home");
@@ -36,13 +35,6 @@ export default function HomePage() {
           width={600}
           height={800}
         />
-      </section>
-      <section className={"space-y-20"}>
-        <FeatureImage src={"/features/boot.webp"} alt={"boot"} />
-        <FeatureImage src={"/features/comfort.webp"} alt={"comfort"} />
-        <FeatureImage src={"/features/fast.webp"} alt={"fast"} />
-        <FeatureImage src={"/features/free.webp"} alt={"free"} />
-        <FeatureImage src={"/features/protects.webp"} alt={"protects"} />
       </section>
     </main>
   );
