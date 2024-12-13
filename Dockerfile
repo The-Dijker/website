@@ -28,7 +28,7 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-COPY --from=builder /app/next.config.ts ./
+COPY --from=builder /app/next.config.mjs ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
