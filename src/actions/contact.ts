@@ -20,7 +20,6 @@ export async function sendEmail({
     replyTo: email,
     subject: `Dijker website bericht van ${name}`,
     html: `
-      <p>V
       <p>${message}</p>
       <p>Reply to: ${email}</p>
     `,
