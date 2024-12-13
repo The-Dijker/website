@@ -24,5 +24,23 @@
     "title": "Welcome to the Dijker",
     "section1": "As if it has always existed: the dijker. A new type of vehicle that feels quite familiar at the same time. It breathes nostalgia.",
     "section2": "But don't let the classic lines fool you, the dijker is a high-tech vehicle with its unique spiral belt drive multispeed®."
+  },
+  "contact": {
+    "form": {
+      "title": "Contact",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending...",
+      "sent": "Sent!",
+      "unhandledError": "An error occurred, please try again later.",
+      "validation": {
+        "name": "Name is required",
+        "email": "Email is required",
+        "emailInvalid": "Email is invalid",
+        "message": "Message is required"
+      }
+    }
   }
 }

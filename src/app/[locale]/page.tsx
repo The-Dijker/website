@@ -1,4 +1,5 @@
 import { Landing } from "@/components/Landing";
+import Contact from "@/components/Contact";
 
 export default function HomePage() {
   return (
@@ -8,6 +9,7 @@ export default function HomePage() {
       }
     >
       <Landing />
+      <Contact />
     </main>
   );
 }

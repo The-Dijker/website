@@ -12,8 +12,9 @@ import { NextIntlClientProvider } from "next-intl";
 import Header from "@/components/Header";
 import { MantineProvider } from "@mantine/core";
 import DijkerCarousel from "@/components/DijkerCarousel";
-import { env } from "@/env";
+import env from "@/env";
 import { Footer } from "@/components/Footer/Footer";
+import { TanstackQueryProvider } from "@/components/Providers/TanstackQueryProvider";
 
 export async function generateMetadata(): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -64,18 +65,20 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={GeistSans.variable}>
-        <NextIntlClientProvider messages={messages}>
-          <MantineProvider>
-            <div className={"grid min-h-screen grid-rows-[auto_auto_1fr_auto]"}>
-              <Header />
-              <DijkerCarousel />
+        <TanstackQueryProvider>
+          <NextIntlClientProvider messages={messages}>
+            <MantineProvider>
+              <div className={"grid min-h-screen grid-rows-[auto_auto_1fr]"}>
+                <Header />
+                <DijkerCarousel />
 
-              {children}
+                {children}
 
-              <Footer />
-            </div>
-          </MantineProvider>
-        </NextIntlClientProvider>
+                <Footer />
+              </div>
+            </MantineProvider>
+          </NextIntlClientProvider>
+        </TanstackQueryProvider>
       </body>
     </html>
   );

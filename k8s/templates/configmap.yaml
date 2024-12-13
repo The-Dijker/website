@@ -5,3 +5,4 @@ metadata:
   namespace: {{ .Values.app.namespace }}
 data:
   BASE_URL: https://{{ .Values.ingress.host }}
+  RECIPIENT_EMAIL: {{ .Values.mail.recipient | quote }}

@@ -123,6 +123,9 @@ jobs:
           INGRESS_HOST: ${{ steps.config.outputs.ingress_host }}
           APP_ENV: ${{ matrix.environment }}
           LETSENCRYPT_ENV: ${{ steps.config.outputs.letsencrypt_env }}
+          GMAIL_EMAIL: ${{ secrets.GMAIL_EMAIL }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ vars.RECIPIENT_EMAIL }}
         run: |
           envsubst < ./k8s/values.yaml > ./k8s/processed-values.yaml
 
