@@ -11,5 +11,23 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "contact": {
+    "form": {
+      "title": "Contact",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending...",
+      "sent": "Sent!",
+      "unhandledError": "An error occurred, please try again later.",
+      "validation": {
+        "name": "Name is required",
+        "email": "Email is required",
+        "emailInvalid": "Email is invalid",
+        "message": "Message is required"
+      }
+    }
   }
 }

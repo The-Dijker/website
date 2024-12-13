@@ -12,6 +12,7 @@ import { NextIntlClientProvider } from "next-intl";
 import Header from "@/components/Header";
 import { MantineProvider } from "@mantine/core";
 import DijkerCarousel from "@/components/DijkerCarousel";
+import { TanstackQueryProvider } from "@/components/Providers/TanstackQueryProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -36,16 +37,18 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={GeistSans.variable}>
-        <NextIntlClientProvider messages={messages}>
-          <MantineProvider>
-            <div className={"grid min-h-screen grid-rows-[auto_auto_1fr]"}>
-              <Header />
-              <DijkerCarousel />
+        <TanstackQueryProvider>
+          <NextIntlClientProvider messages={messages}>
+            <MantineProvider>
+              <div className={"grid min-h-screen grid-rows-[auto_auto_1fr]"}>
+                <Header />
+                <DijkerCarousel />
 
-              {children}
-            </div>
-          </MantineProvider>
-        </NextIntlClientProvider>
+                {children}
+              </div>
+            </MantineProvider>
+          </NextIntlClientProvider>
+        </TanstackQueryProvider>
       </body>
     </html>
   );
