@@ -2,11 +2,34 @@
 
 import { Carousel } from "@mantine/carousel";
 import { Image } from "@mantine/core";
+import NextImage from "next/image";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 export function DijkerCarousel() {
+  const autoplay = useRef(Autoplay({ delay: 5000 }));
+
+  const images = [
+    {
+      src: "/carousel1.webp",
+      alt: "Dijker",
+    },
+    {
+      src: "/carousel2.webp",
+      alt: "Dijker Internals",
+    },
+    {
+      src: "/carousel3.webp",
+      alt: "Dijker with rider",
+    },
+  ];
+
   return (
     <div className={"flex"}>
       <Carousel
+        plugins={[autoplay.current]}
+        onMouseEnter={autoplay.current.stop}
+        onMouseLeave={autoplay.current.reset}
         className={"grow"}
         slideSize={{
           base: "100%",
@@ -20,9 +43,15 @@ export function DijkerCarousel() {
         controlSize={32}
         loop
       >
-        {[...Array(3)].map((_, i) => (
-          <Carousel.Slide className={"w-fit"} key={i}>
-            <Image src={`/carousel${i + 1}.webp`} />
+        {images.map((image) => (
+          <Carousel.Slide key={image.src}>
+            <Image
+              component={NextImage}
+              width={400}
+              height={300}
+              src={image.src}
+              alt={image.alt}
+            />
           </Carousel.Slide>
         ))}
       </Carousel>

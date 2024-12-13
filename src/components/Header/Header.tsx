@@ -39,7 +39,7 @@ export function Header() {
 
       <MobileNavigation
         navItems={navItems}
-        localeSwitcher={<LocaleSwitcher />}
+        localeSwitcher={<LocaleSwitcher textClassName={"text-2xl"} />}
       />
     </header>
   );
