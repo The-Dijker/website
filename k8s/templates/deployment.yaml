@@ -23,3 +23,5 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ .Values.app.name }}-configmap
+            - secretRef:
+                name: {{ .Values.app.name }}-secret

@@ -5,7 +5,7 @@ app:
     repository: rutger505/dijker-website
     tag: "${DOCKER_TAG}"
   port: 3000
-  
+
 ingress:
   host: "${INGRESS_HOST}"
 
@@ -13,3 +13,8 @@ certificate:
   clusterIssuerName: letsencrypt-${LETSENCRYPT_ENV}
   duration: 2160h # 90 days
   renewBefore: 360h # 15 days
+
+mail:
+  email: "${GMAIL_EMAIL}"
+  appPassword: "${GMAIL_APP_PASSWORD}"
+  recipient: "${RECIPIENT_EMAIL}"
